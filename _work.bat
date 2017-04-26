@@ -13,17 +13,17 @@ set angularFactoryTemplateLoc=Templates-Angular\TemplateFactoryAngular.js
 
 echo Hello Miguel what would you like to do?
 echo    1 Open LocalHost Webspace
-echo    2 Get Factory template
+echo    2 Get Factory template REM get the factory template
 REM echo    2 Open Work Space
 REM echo    3 Open Todos
 REM echo    4 Open LocalHost participant login to meeting
 
+REM ask for commmand input
 set /p command= Please input a number :
 
 
 REM Run commands 
-
-REM REM localhost
+REM REM localhost web application navigation 
 IF !command!==1 (
     echo Where would you like to navigate to?
     echo    1 User Login
