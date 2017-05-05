@@ -26,15 +26,34 @@ REM Run commands
 REM REM localhost web application navigation 
 IF !command!==1 (
     echo Where would you like to navigate to?
-    echo    1 User Login
-    echo    2 Participant Login
+    echo    1 Participant 1 Login
+    echo    2 Participant 2 Login
+    echo    3 Participant 3 Login
+    echo    4 All Participants Login
+    echo    5 P1 and P2 Participants Login
+    echo    6 User Login
     set /p command= Please input a number :
     echo !command!
     IF !command!==1 (
-        "webshortcuts/localhost-login.url"
+        "webshortcuts/localhost-participant.url"
     )
     IF !command!==2 (
+        "webshortcuts/localhost-participant2.url"
+    )
+    IF !command!==3 (
+        "webshortcuts/localhost-participant3.url"
+    )
+    IF !command!==4 (
         "webshortcuts/localhost-participant.url"
+        "webshortcuts/localhost-participant2.url"
+        "webshortcuts/localhost-participant3.url"
+    )
+    IF !command!==5 (
+        "webshortcuts/localhost-participant.url"
+        "webshortcuts/localhost-participant2.url"
+    )
+    IF !command!==6 (
+        "webshortcuts/localhost-login.url"
     )
     exit /b
 ) 
