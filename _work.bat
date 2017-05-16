@@ -1,4 +1,4 @@
-REM # Workspace Suite 0.1
+REM Workspace Suite 0.1
 setlocal EnableDelayedExpansion
 wrongInput=0
 
@@ -9,10 +9,13 @@ set resourceDir=C:\Users\chown\Documents\
 set angularFactoryTemplateLoc=Templates-Angular\TemplateFactoryAngular.js
 
 
-
+REM Go to redo point
+:StartPoint
+clear
 
 echo Hello Miguel what would you like to do?
 echo    1 Open LocalHost Webspace
+echo    1Num Open quick participant link 
 echo    2 Get Factory template REM get the factory template
 REM echo    2 Open Work Space
 REM echo    3 Open Todos
@@ -21,9 +24,21 @@ REM echo    4 Open LocalHost participant login to meeting
 REM ask for commmand input
 set /p command= Please input a number :
 
+REM Run commands
+REM Quicka shortcuts to participant logins
+IF !command!==11 (
+    "webshortcuts/localhost-participant.url"
+)
 
-REM Run commands 
-REM REM localhost web application navigation 
+IF !command!==12 (
+    "webshortcuts/localhost-participant2.url"
+)
+
+IF !command!==13 (
+    "webshortcuts/localhost-participant2.url"
+)
+
+REM REM localhost web application navigation
 IF !command!==1 (
     echo Where would you like to navigate to?
     echo    1 Participant 1 Login
@@ -55,20 +70,15 @@ IF !command!==1 (
     IF !command!==6 (
         "webshortcuts/localhost-login.url"
     )
-    exit /b
-) 
+    goto StartPoint
+)
+
 REM Factory Template
 IF !command!==2 (
     set template=%resourceDir%%angularFactoryTemplateLoc%
     type !template! | clip 
     echo Factory Template Copied into your clipboard
-    exit /b
 )
-
-REM REM Todos
-REM IF %command% == 3 
-REM REM localhost
-REM IF %command% == 4 
 
 REM if outside param 
 IF !command! GTR 5 (
@@ -83,3 +93,4 @@ IF %wrongInput%==1 (
     echo please input a number within the given options
 )
 
+goto StartPoint
