@@ -115,7 +115,6 @@
 	],
 	"description": "Fix me comment"
 },
-
 "comment todo" : {
 	"prefix" : "td",
 	"body": [
@@ -123,5 +122,15 @@
 	],
 	"description": "To do comment"
 },
+"Function Doc" : {
+	"prefix" : "doc",
+	"body": [
+		"/**",
+		 "* @function $1",
+		 "* @description $2",
+		 "*/"
+	],
+	"description": "Function"
+}
 
 }
