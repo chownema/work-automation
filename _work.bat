@@ -15,7 +15,7 @@ clear
 
 echo Hello Miguel what would you like to do?
 echo    1 Open LocalHost Webspace
-echo    1Num Open quick participant link 
+echo    [isLocal 0=Prod 1=Local][Participant Number] Participant link 
 echo    2 Get Factory template REM get the factory template
 REM echo    2 Open Work Space
 REM echo    3 Open Todos
@@ -24,10 +24,45 @@ REM echo    4 Open LocalHost participant login to meeting
 REM ask for commmand input
 set /p command= Please input a number :
 
+IF !command!==startup (
+    REM run env
+    "webshortcuts/localhost-participant.url"
+    REM code
+    code C:\Users\chown\Documents\sbx-webclient-php
+    code C:\Users\chown\Documents
+    npm install C:\Users\chown\Documents\sbx-webclient-php
+)
+
+IF !command!==build (
+    cd C:\Users\chown\Documents\sbx-webclient-php
+    gulp build
+    call _work.bat
+)
+
+IF !command!==test (
+    cd C:\Users\chown\Documents\sbx-webclient-php    
+    gulp test
+)
+
+IF !command!==install (
+    cd C:\Users\chown\Documents\sbx-webclient-php    
+    npm install
+)
+
 REM Run commands
-REM Quicka shortcuts to participant logins
+REM Quick shortcuts to participant logins
+REM Local
+IF !command!==h (
+    "webshortcuts/localhost-host.url"    
+)
+
 IF !command!==11 (
     "webshortcuts/localhost-participant.url"
+)
+
+IF !command!==11h (
+    "webshortcuts/localhost-participant.url"
+    "webshortcuts/localhost-host.url"
 )
 
 IF !command!==12 (
@@ -35,7 +70,49 @@ IF !command!==12 (
 )
 
 IF !command!==13 (
+    "webshortcuts/localhost-participant3.url"
+)
+
+IF !command!==14 (
+    "webshortcuts/localhost-participant.url"
     "webshortcuts/localhost-participant2.url"
+    "webshortcuts/localhost-participant3.url"
+)
+
+IF !command!==15 (
+    "webshortcuts/localhost-participant.url"
+    "webshortcuts/localhost-participant2.url"
+)
+
+IF !command!==14h (
+    "webshortcuts/localhost-participant.url"
+    "webshortcuts/localhost-participant2.url"
+    "webshortcuts/localhost-participant3.url"
+    "webshortcuts/localhost-host.url"
+)
+
+IF !command!==15h (
+    "webshortcuts/localhost-participant.url"
+    "webshortcuts/localhost-participant2.url"   
+    "webshortcuts/localhost-host.url"    
+)
+
+REM Prod pointed logins local
+IF !command!==01l (
+    "webshortcuts/prod-local-participant.url"
+)
+
+REM Prod
+IF !command!==01 (
+    "webshortcuts/prod-participant.url"
+)
+
+IF !command!==02 (
+    "webshortcuts/prod-participant2.url"
+)
+
+IF !command!==03 (
+    "webshortcuts/prod-participant3.url"
 )
 
 REM REM localhost web application navigation
