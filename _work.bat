@@ -13,7 +13,22 @@ REM Go to redo point
 :StartPoint
 clear
 
+color 3
+REM Display Logo logic
+echo .................................................__________......
+echo .... _________________________________________ ./           \\___
+echo .___/             /..^|        /_/   _____   ^|_ ^|   _______   ^|^|..
+echo .__/ ____       //...^|   ____/  ^|  ^|.....^| ^|^|..^|  /...^|^|...\ ^|^|..
+echo ../_____/      //....^|   ^|^| ....^|  ^|_____^| ^|^|..^|   ___^|^|___  ^|^|..
+echo ......./      //.....^|   ^|____..^|       ___^|^|..^|  ^|___  ___^| ^|^|..
+echo ....../      //......^|    ___/..^|   ^|\   \\ ...^|   ...^|^|...  ^|^|..
+echo ...../      //.......^|   ^|^| ....^|   ^|.\   \\ ..^|   ...^|^|...  ^|^|..
+echo ..../      //_______ ^|   ^|______^|_  ^|..\   \\ .^|  \___^|^|___/ ^|^|..
+echo .../  ____________ /_^|           /  ^|__.\   \\ ^|             ^|^|..
+echo __/_______________/.\___________/_____/..\___\\\____________//...
+
 echo Hello Miguel what would you like to do?
+
 echo    1 Open LocalHost Webspace
 echo    [isLocal 0=Prod 1=Local][Participant Number] Participant link 
 echo    2 Get Factory template REM get the factory template
@@ -24,32 +39,54 @@ REM echo    4 Open LocalHost participant login to meeting
 REM ask for commmand input
 set /p command= Please input a number :
 
+REM Build commands
 IF !command!==startup (
-    REM run env
     "webshortcuts/localhost-participant.url"
-    REM code
     code C:\Users\chown\Documents\sbx-webclient-php
-    code C:\Users\chown\Documents
-    npm install C:\Users\chown\Documents\sbx-webclient-php
+    cd C:\Users\chown\Documents\sbx-webclient-php    
+    start npm install
+)
+
+IF !command!==push (
+    set /p branch= Please input a branch name :
+    cd C:\Users\chown\Documents\sbx-webclient-php
+    start git push origin !branch!
+)
+
+IF !command!==commit (
+    set /p branch= Please input a branch name :
+    cd C:\Users\chown\Documents\sbx-webclient-php
+    start git commit -AM !branch!
 )
 
 IF !command!==build (
     cd C:\Users\chown\Documents\sbx-webclient-php
-    gulp build
-    call _work.bat
+    start gulp build
 )
 
 IF !command!==test (
     cd C:\Users\chown\Documents\sbx-webclient-php    
-    gulp test
+    start gulp test
 )
 
 IF !command!==install (
-    cd C:\Users\chown\Documents\sbx-webclient-php    
-    npm install
+    cd C:\Users\chown\Documents\sbx-webclient-php
 )
 
-REM Run commands
+REM BITBUCKET QUICK LINKS
+IF !command!==bbb (
+    "webshortcuts/bitbucket-branches.url"
+)
+
+IF !command!==bbpr (
+    "webshortcuts/bitbucket-pullrequests.url"
+)
+
+IF !command!==slack (
+    "webshortcuts/slack.url"
+)
+
+REM Run dev commands 
 REM Quick shortcuts to participant logins
 REM Local
 IF !command!==h (
@@ -170,4 +207,5 @@ IF %wrongInput%==1 (
     echo please input a number within the given options
 )
 
-goto StartPoint
+REM goto StartPoint
+call _work.bat
