@@ -7,6 +7,7 @@ wrongInput=0
 REM resource paths
 set resourceDir=C:\Users\chown\Documents\
 set angularFactoryTemplateLoc=Templates-Angular\TemplateFactoryAngular.js
+set repoDir=C:\Users\chown\Documents\sbx-webclient-php
 
 
 REM Go to redo point
@@ -43,34 +44,35 @@ REM Build commands
 IF !command!==startup (
     "webshortcuts/localhost-participant.url"
     code C:\Users\chown\Documents\sbx-webclient-php
-    cd C:\Users\chown\Documents\sbx-webclient-php    
+    cd %repoDir%
     start npm install
 )
 
 IF !command!==push (
     set /p branch= Please input a branch name :
-    cd C:\Users\chown\Documents\sbx-webclient-php
+    cd %repoDir%
     start git push origin !branch!
 )
 
 IF !command!==commit (
     set /p branch= Please input a branch name :
-    cd C:\Users\chown\Documents\sbx-webclient-php
+    cd %repoDir%
     start git commit -AM !branch!
 )
 
 IF !command!==build (
-    cd C:\Users\chown\Documents\sbx-webclient-php
+    cd %repoDir%
     start gulp build
 )
 
 IF !command!==test (
-    cd C:\Users\chown\Documents\sbx-webclient-php    
+    cd %repoDir%
     start gulp test
 )
 
 IF !command!==install (
-    cd C:\Users\chown\Documents\sbx-webclient-php
+    cd %repoDir%
+    start npm install
 )
 
 REM BITBUCKET QUICK LINKS
@@ -194,18 +196,5 @@ IF !command!==2 (
     echo Factory Template Copied into your clipboard
 )
 
-REM if outside param 
-IF !command! GTR 5 (
-    set /A wrongInput=1
-)
-IF !command! LSS 1 (
-    set /A wrongInput=1
-)
-
-REM Handle Errors
-IF %wrongInput%==1 (
-    echo please input a number within the given options
-)
-
-REM goto StartPoint
-call _work.bat
+goto StartPoint
+REM call _work.bat 
