@@ -14,7 +14,7 @@ REM Go to redo point
 :StartPoint
 clear
 
-color 3
+color 8
 REM Display Logo logic
 echo .................................................__________......
 echo .... _________________________________________ ./           \\___
@@ -41,6 +41,11 @@ REM ask for commmand input
 set /p command= Please input a number :
 
 REM Build commands
+
+IF !command!==edit (
+    code ./
+)
+
 IF !command!==startup (
     "webshortcuts/localhost-participant.url"
     code C:\Users\chown\Documents\sbx-webclient-php
@@ -65,6 +70,11 @@ IF !command!==build (
     start gulp build
 )
 
+IF !command!==css (
+    cd %repoDir%
+    start gulp sass
+)
+
 IF !command!==test (
     cd %repoDir%
     start gulp test
@@ -86,6 +96,10 @@ IF !command!==bbpr (
 
 IF !command!==slack (
     "webshortcuts/slack.url"
+)
+
+IF !command!==jira (
+    "webshortcuts/jira-my-sprint.url"
 )
 
 REM Run dev commands 

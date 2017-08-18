@@ -1,0 +1,25 @@
+var angular = require('angular');
+var app = angular.module('theme.module');
+
+app.factory({{lol}}, [
+'$http', '$log', '$window',
+function ($http, $log, $window) {
+    var srv = this;
+    // Access by key value pairs either a bool flag or content
+    srv.pageDisplayOptions;
+    originPreFix = $window.origin;
+    $http.post(originPreFix+'/api/getWhiteLabelOptions.php')
+    .then(
+        function (res) {
+            srv.pageDisplayOptions = res.data.ResponseMessage.body;
+            // $log.log('Data', res.data, srv.pageDisplayOptions);
+            $log.log('Data', res.data);
+        },
+        function (err) {
+            $log.error('error', err);
+        }
+    );
+    return srv;
+}]);
+
+module.exports = app;

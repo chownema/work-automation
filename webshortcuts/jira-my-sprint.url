@@ -1,0 +1,6 @@
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,11
+[InternetShortcut]
+IDList=
+URL=https://suitebox.atlassian.net/browse/SUIT-2672?jql=status%20in%20(%22In%20Progress%22%2C%22Code%20Review%22%2C%22Technical%20Review%22%2C%22Operational%20Review%22%2C%22Design%20Review%22%2C%22Failed%20Testing%22%2C%22Blocked%22)%20AND%20Sprint%20%3D%2059
+

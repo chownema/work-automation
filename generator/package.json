@@ -1,0 +1,23 @@
+{
+  "name": "generator",
+  "version": "1.0.0",
+  "description": "bla",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "browserify": "^14.4.0",
+    "electron": "^1.7.5",
+    "exorcist": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "mustache": "^2.3.0",
+    "stringify": "^5.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
