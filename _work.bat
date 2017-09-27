@@ -168,6 +168,25 @@ IF !command!==03 (
     "webshortcuts/prod-participant3.url"
 )
 
+REM Test
+IF !command!==21 (
+    "webshortcuts/test-participant.url"
+)
+
+IF !command!==22 (
+    "webshortcuts/test-participant2.url"
+)
+
+IF !command!==23 (
+    "webshortcuts/test-participant3.url"
+)
+
+IF !command!==24 (
+    "webshortcuts/test-participant.url"
+    "webshortcuts/test-participant2.url"
+    "webshortcuts/test-participant3.url"
+)
+
 REM REM localhost web application navigation
 IF !command!==1 (
     echo Where would you like to navigate to?
