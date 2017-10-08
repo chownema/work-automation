@@ -150,6 +150,44 @@ IF !command!==15h (
     "webshortcuts/localhost-host.url"    
 )
 
+REM dev env local 10 way meeting
+IF !command!==t1 (
+    "webshortcuts/localhost-participant10w.1.url"
+)
+
+IF !command!==t2 (
+    "webshortcuts/localhost-participant10w.2.url"
+)
+
+IF !command!==t3 (
+    "webshortcuts/localhost-participant10w.3.url"
+)
+
+IF !command!==t4 (
+    "webshortcuts/localhost-participant10w.4.url"
+)
+
+IF !command!==t5 (
+    "webshortcuts/localhost-participant10w.5.url"
+)
+
+IF !command!==t6 (
+    "webshortcuts/localhost-participant10w.6.url"
+)
+
+IF !command!==t7 (
+    "webshortcuts/localhost-participant10w.7.url"
+)
+
+IF !command!==t8 (
+    "webshortcuts/localhost-participant10w.8.url"
+)
+
+IF !command!==t9 (
+    "webshortcuts/localhost-participant10w.9.url"
+)
+
+
 REM Prod pointed logins local
 IF !command!==01l (
     "webshortcuts/prod-local-participant.url"
