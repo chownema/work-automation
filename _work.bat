@@ -150,6 +150,30 @@ IF !command!==15h (
     "webshortcuts/localhost-host.url"    
 )
 
+REM local eds local serving has a port
+IF !command!==21 (
+    "webshortcuts/localhost-participanteds.url"
+)
+
+IF !command!==22 (
+    "webshortcuts/localhost-participanteds2.url"
+)
+
+IF !command!==23 (
+    "webshortcuts/localhost-participanteds3.url"
+)
+
+IF !command!==24 (
+    "webshortcuts/localhost-participanteds.url"
+    "webshortcuts/localhost-participanteds2.url"
+    "webshortcuts/localhost-participanteds3.url"
+)
+
+IF !command!==25 (
+    "webshortcuts/localhost-participanteds.url"
+    "webshortcuts/localhost-participanteds2.url"
+)
+
 REM dev env local 10 way meeting
 IF !command!==t1 (
     "webshortcuts/localhost-participant10w.1.url"
@@ -189,7 +213,7 @@ IF !command!==t9 (
 
 
 REM Prod pointed logins local
-IF !command!==01l (
+IF !command!==1l (
     "webshortcuts/prod-local-participant.url"
 )
 
